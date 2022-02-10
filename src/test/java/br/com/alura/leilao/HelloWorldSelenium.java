@@ -8,9 +8,11 @@ public class HelloWorldSelenium {
 
 	@Test
 	public void helloTest() {
+
 		System.setProperty("webdriver.chrome.driver", "C://Users//jntd//Downloads//chromedriver.exe");
 		WebDriver browser = new ChromeDriver();
 		browser.navigate().to("http://localhost:8080/leiloes");
+		browser.quit();
 
 	}
 
