@@ -15,7 +15,7 @@ public class LoginTest {
 
     @BeforeEach
     public void beforeEach(){
-         this.LoginPage = new LoginPage();
+         LoginPage = new LoginPage();
     }
 
     @AfterEach
@@ -24,12 +24,11 @@ public class LoginTest {
     }
 
     @Test
-    public void userValid(){
+    public void userValid() {
         LoginPage.fillLoginForm("fulano","pass");
         LoginPage.Login();
 
-        String userLogged = LoginPage.getNameUserLogged();
-        Assert.assertEquals("fulano",userLogged);
+        Assert.assertEquals("fulano",LoginPage.getNameUserLogged());
         Assert.assertFalse(LoginPage.isPageActual());
 
     }
@@ -41,7 +40,7 @@ public class LoginTest {
         LoginPage.Login();
 
         Assert.assertNull(LoginPage.getNameUserLogged());
-        Assert.assertTrue(LoginPage.isPageActual());
+        Assert.assertTrue(LoginPage.invalidData());
         Assert.assertTrue(LoginPage.invalidUserMensage());
 
     }
@@ -53,8 +52,6 @@ public class LoginTest {
         Assert.assertFalse(bidsPage.isPageActual());
         Assert.assertFalse(bidsPage.isTitleAuctionVisible());
         bidsPage.closePage();
-
-
     }
 
 }

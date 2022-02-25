@@ -12,27 +12,27 @@ public class LoginPage {
     private WebDriver browser;
 
     public LoginPage () {
-        System.setProperty("webdriver.chrome.driver", "drivers/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "C://Users//jntd//Downloads//chromedriver.exe");
         this.browser = new ChromeDriver();
         this.browser.navigate().to(URL_LOGIN);
     }
 
 
 
-    public void  fillLoginForm(String username, String password){
+    public void  fillLoginForm(String username, String password) {
         browser.findElement(By.id("username")).sendKeys(username);
         browser.findElement(By.id("password")).sendKeys(username);
 
     }
 
-    public void Login(){
+    public LoginPage Login() {
         browser.findElement(By.id("login-form")).submit();
+        return new LoginPage(browser);
     }
 
-
-    public String getNameUserLogged(){
+     public String getNameUserLogged(){
         try {
-         return browser.findElement(By.id("usuario-logado")).getText();
+            return browser.findElement(By.id("usuario-logado")).getText();
         } catch (NoSuchElementException e){
             return null;
         }
@@ -44,9 +44,13 @@ public class LoginPage {
         return browser.getCurrentUrl().contains(URL_LOGIN);
     }
 
+    public boolean invalidData(){
+        return browser.getCurrentUrl().equals(URL_LOGIN + "?error");
+    }
+
 
     public boolean invalidUserMensage(){
-        return browser.getPageSource().contains("usuário e senha inválidos");
+        return browser.getPageSource().contains("Usuário e senha inválidos");
     }
 
 
