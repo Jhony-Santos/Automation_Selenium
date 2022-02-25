@@ -1,5 +1,6 @@
 package br.com.alura.leilao.login;
 
+import br.com.alura.leilao.auctions.AuctionsPage;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
@@ -25,9 +26,9 @@ public class LoginPage {
 
     }
 
-    public LoginPage Login() {
+    public AuctionsPage Login() {
         browser.findElement(By.id("login-form")).submit();
-        return new LoginPage(browser);
+        return new AuctionsPage(browser);
     }
 
      public String getNameUserLogged(){
