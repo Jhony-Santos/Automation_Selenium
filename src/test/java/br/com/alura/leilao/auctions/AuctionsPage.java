@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 public class AuctionsPage {
 
-  private static final String URL_REGISTER_ACTIONS="http://localhost:8080/login/new";
+  private static final String URL_REGISTER_ACTIONS="http://localhost:8080/leiloes/new";
   private WebDriver browser;
 
   public AuctionsPage(WebDriver browser){
@@ -23,9 +23,9 @@ public class AuctionsPage {
 
   }
 
-  public AuctionsPage toChargeForm(){
+  public RegisterAuctionsPage toChargeForm(){
         this.browser.navigate().to(URL_REGISTER_ACTIONS);
-        return new AuctionsPage(browser);
+        return new RegisterAuctionsPage(browser);
 
   }
 
