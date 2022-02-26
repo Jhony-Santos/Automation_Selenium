@@ -24,18 +24,15 @@ public class AuctionsTest {
     public void registerAuctions() {
 
         LoginPage loginPage = new LoginPage();
-        LoginTest loginTest=new LoginTest();
-        loginTest.userValid();
-      //  loginPage.fillLoginForm("fulano","pass");
+        //LoginTest loginTest=new LoginTest();
+        //loginTest.userValid();
+        loginPage.fillLoginForm("fulano","pass");
         this.auctionsPage = loginPage.Login();
         auctionsPage.toChargeForm();
+        RegisterAuctionsPage registerAuctionsPage = auctionsPage.toChargeForm();
 
     }
 
-    @Test
-    public void codePag(){
-        auctionsPage.codePage();
-    }
 
 
 
