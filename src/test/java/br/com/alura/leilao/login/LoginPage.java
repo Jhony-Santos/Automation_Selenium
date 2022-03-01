@@ -22,7 +22,7 @@ public class LoginPage {
 
     public void  fillLoginForm(String username, String password) {
         browser.findElement(By.id("username")).sendKeys(username);
-        browser.findElement(By.id("password")).sendKeys(username);
+        browser.findElement(By.id("password")).sendKeys(password);
 
     }
 
